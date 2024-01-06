@@ -1,0 +1,92 @@
+﻿@page "/sale/update/{SaleId:int}"
+@inherits UpdateSaleBase
+<link rel="stylesheet" href="css/Style.css" />
+
+<EditForm Model="@saleDto" OnValidSubmit="UpdateSale" class="mt-4 mb-4">
+    <DataAnnotationsValidator />
+    <div class="product-form">
+
+        <div class="form-group">
+            <label for="InvoiceNo" class="form-label">Invoice No:</label>
+            <input type="text" id="InvoiceNo" class="form-control" @bind-value="saleDto.InvoiceNo" />
+            @if (string.IsNullOrWhiteSpace(saleDto.InvoiceNo))
+            {
+                <div class="validation-message">
+                    <span class="fw-bold" style="font-size: 0.9rem;"><ValidationMessage For="@(() => saleDto.InvoiceNo)" /></span>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="CustomerName" class="form-label">Customer Name:</label>
+            <input type="text" id="CustomerName" class="form-control" @bind-value="saleDto.CustomerName" />
+            @if (string.IsNullOrWhiteSpace(saleDto.CustomerName))
+            {
+                <div class="validation-message">
+                    <span class="fw-bold" style="font-size: 0.9rem;"><ValidationMessage For="@(() => saleDto.CustomerName)" /></span>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="MobileNo" class="form-label">Mobile No:</label>
+            <input type="text" id="MobileNo" class="form-control" @bind-value="saleDto.MobileNo" />
+            @if (string.IsNullOrWhiteSpace(saleDto.MobileNo))
+            {
+                <div class="validation-message">
+                    <span class="fw-bold" style="font-size: 0.9rem;"><ValidationMessage For="@(() => saleDto.MobileNo)" /></span>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="SaleDate" class="form-label">Sale Date:</label>
+            <input id="SaleDate" type="date" class="form-control" @bind-value="saleDto.SaleDate" />
+            @if (saleDto.SaleDate == null)
+            {
+                <div class="validation-message">
+                    <span class="fw-bold" style="font-size: 0.9rem;"><ValidationMessage For="@(() => saleDto.SaleDate)" /></span>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="ProductId" class="form-label">Product Id:</label>
+            <input type="number" class="form-control" @bind-value="saleDto.ProductId" />
+            @if (saleDto.ProductId == null)
+            {
+                <div class="validation-message">
+                    <span class="fw-bold" style="font-size: 0.9rem;"><ValidationMessage For="@(() => saleDto.ProductId)" /></span>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="Quantity" class="form-label">Quantity:</label>
+            <input id="Quantity" type="number" class="form-control" @bind-value="saleDto.Quantity" />
+            @if (saleDto.Quantity == null)
+            {
+                <div class="validation-message">
+                    <span class="fw-bold" style="font-size: 0.9rem;"><ValidationMessage For="@(() => saleDto.Quantity)" /></span>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="TotalAmount" class="form-label">Total Amount:</label>
+            <input id="TotalAmount" type="number" class="form-control" @bind-value="saleDto.TotalAmount" />
+            @if (saleDto.TotalAmount == null)
+            {
+                <div class="validation-message">
+                    <span class="fw-bold" style="font-size: 0.9rem;"><ValidationMessage For="@(() => saleDto.TotalAmount)" /></span>
+                </div>
+            }
+        </div>
+
+        <div class="d-flex flex-column align-items-center mt-3">
+            <div class="d-flex flex-column flex-md-row align-items-center">
+                <button class="btn btn-primary mb-2" type="submit">Update Sale</button>
+            </div>
+        </div>
+    </div>
+</EditForm>

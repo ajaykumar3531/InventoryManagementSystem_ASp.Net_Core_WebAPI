@@ -1,0 +1,48 @@
+﻿@page "/stock/update/{StockId:int}"
+@inherits UpdateStockBase
+<link rel="stylesheet" href="css/Style.css" />
+
+<EditForm Model="@stockDto" OnValidSubmit="UpdateStock" class="mt-4 mb-4">
+    <DataAnnotationsValidator />
+    <div class="product-form">
+
+        <div class="form-group">
+            <label for="Quantity" class="form-label">Quantity:</label>
+            <input type="number" class="form-control" @bind-value="stockDto.Quantity" />
+            @if (stockDto.Quantity == null)
+            {
+                <div class="validation-message">
+                    <span class="fw-bold" style="font-size: 0.9rem;"><ValidationMessage For="@(() => stockDto.Quantity)" /></span>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="CreatedDate" class="form-label">Created Date:</label>
+            <input id="CreatedDate" type="date" class="form-control" @bind-value="stockDto.CreatedDate" />
+            @if (stockDto.CreatedDate == null)
+            {
+                <div class="validation-message">
+                    <span class="fw-bold" style="font-size: 0.9rem;"><ValidationMessage For="@(() => stockDto.CreatedDate)" /></span>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="LastModifiedDate" class="form-label">Last Modified Date:</label>
+            <input id="LastModifiedDate" type="date" class="form-control" @bind-value="stockDto.LastModifiedDate" />
+            @if (stockDto.LastModifiedDate == null)
+            {
+                <div class="validation-message">
+                    <span class="fw-bold" style="font-size: 0.9rem;"><ValidationMessage For="@(() => stockDto.LastModifiedDate)" /></span>
+                </div>
+            }
+        </div>
+
+        <div class="d-flex flex-column align-items-center mt-3">
+            <div class="d-flex flex-column flex-md-row align-items-center">
+                <button class="btn btn-primary mb-2" type="submit">Update Stock</button>
+            </div>
+        </div>
+    </div>
+</EditForm>

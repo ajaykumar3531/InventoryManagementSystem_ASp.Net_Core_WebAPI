@@ -1,0 +1,62 @@
+﻿@page "/sales"
+@inherits LoadSaleBase
+<h3 class="text-center">Sale Data</h3>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-success mt-3" style="margin-bottom:5px" @onclick="()=>addSale()">Add Sale</button>
+            <table class="table table-bordered table-hover">
+                <thead class="dark">
+                    <tr>
+                        <th>Sale ID</th>
+                        <th>Invoice No</th>
+                        <th>Customer Name</th>
+                        <th>Mobile No</th>
+                        <th>Sale Date</th>
+                        <th>Product ID</th>
+                        <th>Quantity</th>
+                        <th>Total Amount</th>
+                        <th>Delete</th>
+                        <th>Update</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var sale in Sales)
+                    {
+                        <tr>
+                            <td>@sale.SaleId</td>
+                            <td>@sale.InvoiceNo</td>
+                            <td>@sale.CustomerName</td>
+                            <td>@sale.MobileNo</td>
+                            <td>@sale.SaleDate?.ToShortDateString()</td>
+                            <td>@sale.ProductId</td>
+                            <td>@sale.Quantity</td>
+                            <td>@sale.TotalAmount</td>
+                            <td>
+                                <button class="btn btn-danger" @onclick="()=>Delete(sale.SaleId)">Delete</button>
+                            </td>
+                            <td>
+                                <button class="btn btn-primary" @onclick="() => Update_Click(sale.SaleId)">Update</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    private void Update_Click(int saleId)
+    {
+        NavigationManager.NavigateTo($"/sale/update/{saleId}");
+    }
+    private void addSale()
+    {
+        NavigationManager.NavigateTo("/addSale/sale");
+    }
+}

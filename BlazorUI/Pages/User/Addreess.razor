@@ -1,0 +1,63 @@
+﻿<!-- AddressForm.razor -->
+
+<div>
+    <label>Address Type:</label>
+    <div>
+        <input type="radio" id="permanent" name="addressType" @onclick="()=>permanent()" />
+        <label for="permanent">Permanent</label>
+
+        <input type="radio" id="current" name="addressType" @onclick="()=>current()" />
+        <label for="current">Current</label>
+    </div>
+
+    <div class="form-group">
+        <label for="permanentStreet">Street:</label>
+        <InputText id="permanentStreet" @bind-Value="permanentAddress.Street" class="form-control" disabled="@(selectedAddressType != "permanent")" />
+    </div>
+
+    <div class="form-group">
+        <label for="permanentCity">City:</label>
+        <InputText id="permanentCity" @bind-Value="permanentAddress.City" class="form-control" disabled="@(selectedAddressType != "permanent")" />
+    </div>
+
+    <div class="form-group">
+        <label for="permanentZip">Zip Code:</label>
+        <InputText id="permanentZip" @bind-Value="permanentAddress.ZipCode" class="form-control" disabled="@(selectedAddressType != "permanent")" />
+    </div>
+
+    <div class="form-group">
+        <label for="currentStreet">Street:</label>
+        <InputText id="currentStreet" @bind-Value="currentAddress.Street" class="form-control" disabled="@(selectedAddressType != "current")" />
+    </div>
+
+    <div class="form-group">
+        <label for="currentCity">City:</label>
+        <InputText id="currentCity" @bind-Value="currentAddress.City" class="form-control" disabled="@(selectedAddressType != "current")" />
+    </div>
+
+    <div class="form-group">
+        <label for="currentZip">Zip Code:</label>
+        <InputText id="currentZip" @bind-Value="currentAddress.ZipCode" class="form-control" disabled="@(selectedAddressType != "current")" />
+    </div>
+</div>
+
+@code {
+    protected string selectedAddressType = "";
+    private AddressModel permanentAddress = new AddressModel();
+    private AddressModel currentAddress = new AddressModel();
+
+    private class AddressModel
+    {
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string ZipCode { get; set; }
+    }
+    public void permanent()
+    {
+        selectedAddressType = "permanent";
+    }
+    public void current()
+    {
+        selectedAddressType = "current";
+    }
+}

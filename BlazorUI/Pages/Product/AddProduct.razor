@@ -1,0 +1,81 @@
+﻿@page "/addProduct"
+@inherits AddProductBase
+<link rel="stylesheet" href="css/Style.css" />
+
+<EditForm Model="@productDto" OnValidSubmit="AddProduct" class="mt-4 mb-4">
+    <DataAnnotationsValidator />
+    <div class="product-form">
+        <h3 class="mt-4 mb-4">Add Product</h3>
+        <div class="form-group">
+            <label for="ProductId" class="form-label">Product Id:</label>
+            <input type="number" class="form-control" @bind="productDto.ProductId" />
+            @if (string.IsNullOrWhiteSpace(productDto.ProductId.ToString()))
+            {
+                <div class="validation-message">
+                    <span class="fw-bold" style="font-size: 0.9rem;"><ValidationMessage For="@(() => productDto.ProductId.ToString())" /></span>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="ProductName" class="form-label">Product Name:</label>
+            <input type="text" id="ProductName" class="form-control" @bind="productDto.ProductName" />
+            @if (string.IsNullOrWhiteSpace(productDto.ProductName))
+            {
+                <div class="validation-message">
+                    <span class="fw-bold" style="font-size: 0.9rem;"><ValidationMessage For="@(() => productDto.ProductName)" /></span>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="CategoryName" class="form-label">Category Name:</label>
+            <input type="text" id="CategoryName" class="form-control" @bind="productDto.CategoryName" />
+            @if (string.IsNullOrWhiteSpace(productDto.CategoryName))
+            {
+                <div class="validation-message">
+                    <span class="fw-bold" style="font-size: 0.9rem;"><ValidationMessage For="@(() => productDto.CategoryName)" /></span>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="CreatedDate" class="form-label">Created Date:</label>
+            <input id="CreatedDate" type="date" class="form-control" @bind="productDto.CreatedDate" />
+            @if (productDto.CreatedDate == null)
+            {
+                <div class="validation-message">
+                    <span class="fw-bold" style="font-size: 0.9rem;"><ValidationMessage For="@(() => productDto.CreatedDate)" /></span>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="Price" class="form-label">Price:</label>
+            <input id="Price" type="number" class="form-control" @bind="productDto.Price" />
+            @if (productDto.Price == null)
+            {
+                <div class="validation-message">
+                    <span class="fw-bold" style="font-size: 0.9rem;"><ValidationMessage For="@(() => productDto.Price)" /></span>
+                </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="ProductDetails" class="form-label">Product Details:</label>
+            <textarea id="ProductDetails" class="form-control" @bind="productDto.ProductDetails"></textarea>
+            @if (string.IsNullOrWhiteSpace(productDto.ProductDetails))
+            {
+                <div class="validation-message">
+                    <span class="fw-bold" style="font-size: 0.9rem;"><ValidationMessage For="@(() => productDto.ProductDetails)" /></span>
+                </div>
+            }
+        </div>
+
+        <div class="d-flex flex-column align-items-center mt-3">
+            <div class="d-flex flex-column flex-md-row align-items-center">
+                <button class="btn btn-primary mb-2" type="submit">Add Product</button>
+            </div>
+        </div>
+    </div>
+</EditForm>

@@ -1,0 +1,57 @@
+﻿@page "/products"
+@inherits LoadProductsBase
+<h3 class="text-center">Product Data</h3>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-success mt-3" style="margin-bottom:5px" @onclick="()=>addProduct()">Add Product</button>
+            <table class="table table-bordered table-hover">
+                <thead class="dark">
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Category Name</th>
+                        <th>Created Date</th>
+                        <th>Price</th>
+                        <th>Product Details</th>
+                        <th>Delete</th>
+                        <th>Update</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Products)
+                    {
+                        <tr>
+                            <td>@product.ProductId</td>
+                            <td>@product.ProductName</td>
+                            <td>@product.CategoryName</td>
+                            <td>@product.CreatedDate?.ToShortDateString()</td>
+                            <td>@product.Price</td>
+                            <td>@product.ProductDetails</td>
+                            <td>
+                                <button class="btn btn-danger" @onclick="()=>Delete(product.ProductId)">Delete</button>
+                            </td>
+                            <td>
+                                <button class="btn btn-primary" @onclick="() => Update_Click(product.ProductId)">Update</button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+    private void Update_Click(int productId)
+    {
+        NavigationManager.NavigateTo($"/product/update/{productId}");
+    }
+    private void addProduct()
+    {
+        NavigationManager.NavigateTo("/addPRoduct");
+    }
+}

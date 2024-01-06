@@ -1,0 +1,111 @@
+﻿@inherits LayoutComponentBase
+
+<style>
+    .navbar {
+        background-color: #E0FFFF; /* Light gray background color */
+        padding: 15px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+        color: whitesmoke; /* Dark gray text color for brand */
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .navbar-nav {
+        margin-top: 10px;
+    }
+
+    .nav-item {
+        margin-right: 15px;
+    }
+
+    .nav-link {
+        color: #495057 !important; /* Dark gray text color for links */
+        font-size: 18px;
+    }
+
+    .sticky-nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #ffffff; /* White background for sticky nav */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    footer{
+          position: sticky;
+          right:0;
+          bottom:0;
+          width:1000px;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="/" style="margin-left:35px">Inventory Management System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="products">Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="stocks">Stock</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="purchases">Purchase</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sales">Sale</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+    @Body
+</main>
+
+@* <footer class="bg-light text-dark py-5 ">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h5>About Us</h5>
+                <p>Your company description goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="col-md-3">
+                <h5>Contact</h5>
+                <p>Email: info@example.com<br>Phone: +1 (123) 456-7890</p>
+            </div>
+            <div class="col-md-3">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Connect With Us</h5>
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                    <li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                    <li class="list-inline-item"><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+ *@

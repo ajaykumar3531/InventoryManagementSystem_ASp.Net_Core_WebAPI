@@ -1,0 +1,76 @@
+﻿@page "/"
+@* YourRazorComponent.razor *@
+
+<div class="container-fluid intro-container">
+    <div class="row justify-content-center align-items-center">
+
+        <div class="col-md-8 text-center text-light mb-5">
+            <h3 class="display-4 " style="color:aquamarine" >Welcome to Our Inventory Management System</h3>
+            <p class="lead">
+                Streamline your business operations with our comprehensive inventory management solution.
+            </p>
+            <a href="/" class="btn btn-primary btn-lg">Get Started</a>
+        </div>
+
+        <!-- Card 1: Product Management -->
+        <div class="col-md-5 mb-4">
+            <div class="card border-0 shadow text-center">
+                <div class="card-body">
+                    <i class="fas fa-cubes fa-4x text-primary mb-4"></i>
+                    <h2 class="card-title text-dark">Product Management</h2>
+                    <p class="card-text text-muted">
+                        Explore our product management features to effortlessly add, edit, and view product details.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Sales -->
+        <div class="col-md-5 mb-4">
+            <div class="card border-0 shadow text-center">
+                <div class="card-body">
+                    <i class="fas fa-chart-bar fa-4x text-success mb-4"></i>
+                    <h2 class="card-title text-dark">Sales</h2>
+                    <p class="card-text text-muted">
+                        Monitor and analyze your sales data to make informed business decisions with ease.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Stock Overview -->
+        <div class="col-md-5 mb-4">
+            <div class="card border-0 shadow text-center">
+                <div class="card-body">
+                    <i class="fas fa-boxes fa-4x text-warning mb-4"></i>
+                    <h2 class="card-title text-dark">Stock Overview</h2>
+                    <p class="card-text text-muted">
+                        Keep track of your stock levels and receive real-time notifications for low inventory.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4: Purchases -->
+        <div class="col-md-5 mb-4">
+            <div class="card border-0 shadow text-center">
+                <div class="card-body">
+                    <i class="fas fa-shopping-cart fa-4x text-danger mb-4"></i>
+                    <h2 class="card-title text-dark">Purchases</h2>
+                    <p class="card-text text-muted">
+                        Efficiently manage your purchases and gain better financial control by tracking expenses.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .intro-container {
+        background-image: url('your-background-image.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+    }
+</style>
